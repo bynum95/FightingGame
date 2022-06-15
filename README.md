@@ -13,3 +13,5 @@ arrow up: jump
 arrow down: attack
 
 If the health bars for both players are the same at the end of the timer, the game is a tie. If the health bar for player 1 is greater than player 2 at the end of the timer, or player 2's health bar is zero at any point, player 1 wins. If the health bar for player 2 is greater than player 1 at the end of the timer, or player 1's health bar is zero at any point, player 2 wins.
+
+The game can be played at: https://tierrabynum-fighting-game.netlify.app
