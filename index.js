@@ -90,7 +90,7 @@ const player = new Fighter ({
 
 const enemy = new Fighter ({
 	position: {
-		x: 400,
+		x: 950 ,
 		y: 100
 	},
 	velocity: {
@@ -270,7 +270,35 @@ function animate() {
 }
 
 animate()
-
+function restart_Game() {
+	//restart the enemy and the player sprites to idle
+	player.restartSprite();
+	enemy.restartSprite();
+	//restart death variable
+	player.dead = false;
+	enemy.dead = false;
+	//restart the enemy and the player positions
+	enemy.position.x = 950;
+	enemy.position.y = 300;
+	player.position.x = 100;
+	player.position.y = 300;
+	player.health = 100;
+	enemy.health = 100;
+	//restart the enemy and the player speed
+	enemy.velocity.x = 0;
+	enemy.velocity.y = 0;
+	player.velocity.x = 0;
+	player.velocity.y = 0;
+	//restart the health bar
+	gsap.to('#playerHealth', {
+		width: '100%'
+	})
+	gsap.to('#enemyHealth', {
+		width: '100%'
+	})
+	//restart the timer	and erace the determineWinner text
+	restartdetermineWinner()
+}
 window.addEventListener('keydown', (event) => {
 	if (!player.dead) {
 	switch (event.key) {
@@ -306,6 +334,11 @@ window.addEventListener('keydown', (event) => {
 		case 'ArrowDown':
 			enemy.attack();
 			break; 
+		}
+	}
+	if (enemy.dead||player.dead){
+		if (event.key === 'r'){
+			restart_Game();
 		}
 	}
 })
