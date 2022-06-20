@@ -136,7 +136,11 @@ class Fighter extends Sprite {
 			this.switchSprite('takeHit');
 		}
 	}
-
+	restartSprite() {
+		this.image = this.sprites.idle.image;
+		this.framesMax = this.sprites.idle.framesMax;
+		this.framesCurrent = 0;
+	}
 	switchSprite(sprite) {
 		//fighter died
 		if (this.image === this.sprites.death.image) {
