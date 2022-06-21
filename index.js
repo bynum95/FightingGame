@@ -224,9 +224,9 @@ function animate() {
 
 	//detect for collision & enemy gets hit
 	if (
-		rectangularCollision({
-			rectangle1: player,
-			rectangle2: enemy
+		hitBox({
+			playerOneHitBox: player,
+			playerTwoHitBox: enemy
 		}) &&
 		player.isAttacking && player.framesCurrent === 4) //health subtracted at frame for sword attack
 		{
@@ -245,9 +245,9 @@ function animate() {
 
 	//if player gets hit
 	if (
-		rectangularCollision({
-			rectangle1: enemy,
-			rectangle2: player
+		hitBox({
+			playerOneHitBox: enemy,
+			playerTwoHitBox: player
 		}) &&
 		enemy.isAttacking && enemy.framesCurrent === 2) 
 		{
